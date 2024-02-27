@@ -1,0 +1,11 @@
+.menu-p {
+  font-size: 32px;
+}
+
+.menu-p:hover {
+  color: #edf5e1;
+}
+
+.menu-p:focus {
+  color: #edf5e1;
+}

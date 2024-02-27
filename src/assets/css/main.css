@@ -2,10 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    background-color: #90D2A9;
+@font-face {
+  font-family: "Object Sans Regular";
+  src: url("../fonts/ObjectSans/ObjectSans-Regular.otf");
 }
 
-footer {
-    background-color: #379683;
+@font-face {
+  font-family: "Object Sans Heavy";
+  src: url("../fonts/ObjectSans/ObjectSans-Heavy.otf");
+}
+
+body {
+  background-color: #90d2a9;
+  color: #05386b;
+  font-family: "Object Sans Regular";
+}
+
+button {
+  font-family: "Object Sans Regular";
+}
+
+.boldFont {
+  font-family: "Object Sans Heavy";
+}
+
+.colorWhite {
+  color: #edf5e1;
 }

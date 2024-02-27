@@ -1,0 +1,27 @@
+.arrowShedule {
+  width: 32px;
+  height: 32px;
+}
+
+.sheduleDay {
+  padding: 12px;
+  text-align: center;
+}
+
+.sheduleDay p:first-child {
+  font-size: 20px;
+}
+
+.sheduleDay p:last-child {
+  font-size: 16px;
+}
+
+.selectSheduleDay {
+  background-color: #05386b;
+  padding: 14px;
+  border-radius: 12px;
+}
+
+.selectSheduleDay p {
+  color: #edf5e1;
+}
