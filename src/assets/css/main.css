@@ -29,3 +29,120 @@ button {
 .colorWhite {
   color: #edf5e1;
 }
+
+.blackout {
+  transition: 0.3s ease;
+  pointer-events: none;
+  opacity: 0;
+  height: 135vh;
+  width: 100%;
+  z-index: 10;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hallDiv {
+  background-color: #90d2a9;
+  position: absolute;
+  top: 25rem;
+  left: 33rem;
+  width: auto;
+  z-index: 60;
+  opacity: 0;
+  padding: 24px;
+  border-radius: 12px;
+  transition: 0.3s ease;
+  pointer-events: none;
+}
+
+.hall {
+  background-color: #05386b;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.seatNumber {
+  background-color: #5cdb95;
+  color: #edf5e1;
+  padding: 6px;
+  border-radius: 4px;
+  width: 40px;
+  text-align: center;
+  margin: 1rem;
+  font-size: larger;
+  cursor: pointer;
+}
+
+.hallSeats {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.seats {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+}
+
+.infoCost {
+  display: grid;
+  grid-template-columns: 530px 100px;
+}
+
+.buyInfo {
+  display: grid;
+  grid-template-columns: repeat(2, 9rem);
+  align-items: center;
+}
+
+.selectedSessionInHall {
+  text-align: center;
+  width: 80px;
+}
+
+.aboutHall {
+  display: grid;
+  grid-template-columns: 8.5rem 42rem 2rem;
+  text-align: center;
+}
+
+.promocodeInfo {
+  display: grid;
+  grid-template-columns: 12rem;
+  align-items: center;
+  text-align: center;
+}
+
+.promocodeInput {
+  padding: 4px;
+  width: 12rem;
+  border-radius: 4px;
+  background-color: #05386b;
+  color: #edf5e1;
+  font-size: large;
+}
+
+.buyTicketBtn {
+  padding: 8px;
+  height: 40px;
+  width: 140px;
+  border-radius: 6px;
+  background-color: #05386b;
+}
+
+.screenText {
+  border-bottom: 2px solid snow;
+  text-align: center;
+  font-size: larger;
+}
+
+.numberRow {
+  text-align: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.crosBtn {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}

@@ -1,49 +1,45 @@
 .coupon {
-    background-color: #05386b;
-    color: #edf5e1;
-    display: grid;
-    grid-template-columns: 520px 600px 150px;
-    border-radius: 12px;
-    padding: 12px;
-    margin-top: 2rem;
+  background-color: #05386b;
+  color: #edf5e1;
+  display: grid;
+  grid-template-columns: 520px 600px 150px;
+  border-radius: 12px;
+  padding: 12px;
+  margin-top: 2rem;
 }
 
 .coupon:first-child {
-    margin-top: 4rem;
+  margin-top: 4rem;
 }
 
 .coupon img:first-child {
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 }
 
 .coupon img:last-child {
-    width: 130px;
-    height: 100px;
+  width: 130px;
+  height: 100px;
 }
 
 .couponExplanation {
-    background-color: #379683;
-    padding: 6px;
-    transition: .3s linear;
-    border-radius: 12px;
-    width: 400px;
-    top: -2.5rem;
-    margin-left: 15rem;
-    opacity: 0;
+  background-color: #379683;
+  padding: 6px;
+  transition: 0.3s linear;
+  border-radius: 12px;
+  width: 400px;
+  top: -2.5rem;
+  margin-left: 15rem;
+  opacity: 0;
 }
 
 .couponExplanation p {
-    font-size: 20px;
-    font-weight: lighter;
-}
-
-.question:hover .couponExplanation {
-    opacity: 1;
+  font-size: 20px;
+  font-weight: lighter;
 }
 
 .couponImg {
-    border-left: #edf5e1 dotted 12px;
-    padding-left: 15px;
-    cursor: pointer;
+  border-left: #edf5e1 dotted 12px;
+  padding-left: 15px;
+  cursor: pointer;
 }

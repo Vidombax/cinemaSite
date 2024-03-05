@@ -1,18 +1,25 @@
 .textAboutFilm {
-    max-width: 56rem;
-    margin-bottom: 3rem;
+  max-width: 56rem;
+  margin-bottom: 3rem;
 }
 
 .posterImg {
-    margin-top: -24.5rem;
+  margin-top: -24.5rem;
+  width: 350px;
+  height: 500px;
+  border-radius: 12px;
 }
 
 .selectDay {
-    background: #379683;
-    border-radius: 6px;
-    color: #edf5e1;
-    text-align: center;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    cursor: pointer;
+  background: #379683;
+  border-radius: 6px;
+  color: #edf5e1;
+  text-align: center;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  cursor: pointer;
+}
+
+.trailerDiv video {
+  border-radius: 12px;
 }

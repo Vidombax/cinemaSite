@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
     <link rel="stylesheet" href="../assets/css/listOfMovies.css">
+    <link rel="shortcut icon" href="src/public/favicon.png" type="image/png">
 </head>
 <body>
 <header>
@@ -27,15 +28,15 @@
     <main>
         <div>
             <div class="flex justify-center items-center mb-16 relative">
-                <img src="../public/poster.png" alt="Poster" class="posterImg">
+                <img src="../public/testPoster.jpg" alt="Poster" class="posterImg">
                 <div class="ml-16">
                     <div class="flex items-center gap-14 mb-4 text-xl">
                         <p>Страна</p>
                         <p>Жанр</p>
                         <p>Продолжительность</p>
                     </div>
-                    <p class="boldFont text-5xl mb-6">Название</p>
-                    <p class="textAboutFilm text-xl">Сложно сказать, почему явные признаки победы институционализации призваны к ответу. Мы вынуждены отталкиваться от того, что разбавленное изрядной долей эмпатии, рациональное мышление позволяет оценить значение модели развития. Безусловно, граница обучения кадров представляет собой интересный эксперимент проверки экспериментов, поражающих по своей масштабности и грандиозности.</p>
+                    <p class="boldFont text-5xl mb-6" id="nameSelectedFilm">Такси</p>
+                    <p class="textAboutFilm text-xl">Таксист Никита помешан на быстрой езде. Как ураган проносится он по извилистым улицам Нижнего Тагила на мощном ревущем «ВАЗ», пугая прохожих и приводя в ужас пассажиров. Начинающий следователь Макар вынуждает его помогать в поимке банды грабителей люков, каждый раз ускользающих от полиции на неуловимых «Тойотах».</p>
                     <div class="mb-16">
                         <p class="mb-6 boldFont text-2xl">Сеансы на:
                         <select class="selectDay">
@@ -45,7 +46,7 @@
                             <option value="4 марта">4 марта</option>
                         </select>
                     </p>
-                        <div class="flex gap-20 ">
+                        <div class="flex gap-20 items-center justify-center">
                             <div class="cursor-pointer session selectSession">
                                 <p class="boldFont">10:00</p>
                                 <p>228 ₽</p>
@@ -68,8 +69,8 @@
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <img src="../public/trailer.png" alt="Trailer" class="cursor-pointer">
+                    <div class="trailerDiv flex items-center justify-center">
+                        <video src="../public/trailer-videos/test.mp4" type="video/mp4" controls="controls" width="700" height="700"></video>
                     </div>
                 </div>
             </div>
