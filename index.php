@@ -18,17 +18,16 @@
       <?php
         require_once('./src/modules/Header.html');
       ?>
-      <main>
-      <?php
-        require_once('./src/pages/shedule.html')
-      ?>
+      <main id="main">
+
       </main>
       <?php
-      require_once('./src/modules/Footer.html')
+        require_once('./src/modules/Footer.html')
       ?>
     </div>
   </body>
   <script src="./src/assets/js/jquery-3.7.1.min.js"></script>
   <script src="./src/assets/js/main.js"></script>
-  <script src="src/assets/js/shedule.js"></script>
+  <script src="./src/assets/js/shedule.js"></script>
+  <script src="./src/assets/js/films.js"></script>
 </html>

@@ -1,0 +1,18 @@
+.textAboutFilm {
+    max-width: 56rem;
+    margin-bottom: 3rem;
+}
+
+.posterImg {
+    margin-top: -24.5rem;
+}
+
+.selectDay {
+    background: #379683;
+    border-radius: 6px;
+    color: #edf5e1;
+    text-align: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    cursor: pointer;
+}

@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="src/assets/css/sheduleSession.css" />
     <link rel="stylesheet" href="src/assets/css/listOfMovies.css" />
   </head>
-  <body>
+  <body class="shedulePage">
     <div class="flex justify-center mb-16">
       <div class="flex justify-center gap-32">
         <div>
@@ -77,8 +77,53 @@
       </div>
     </div>
     <div
-      class="listOfMovies flex items-center justify-center"
-      id="listOfMovies"
-    ></div>
+      class="listOfMovies flex items-center justify-center" id="listOfMovies">
+      <div class="mb-12 movieSession">
+        <a href="./src/pages/selectedFilm.php">
+          <img
+            src="./src/public/poster.png"
+            alt="Poster"
+            class="poster cursor-pointer"
+          />
+        </a>
+        <div class="grid">
+          <div class="flex gap-10">
+            <p class="text-2xl">Страна</p>
+            <p class="text-2xl">Жанр</p>
+            <p class="text-2xl">Продолжительность</p>
+          </div>
+          <p class="boldFont text-5xl cursor-pointer">
+            <a href="#">Название</a>
+          </p>
+          <div class="flex gap-20">
+            <div class="cursor-pointer session selectSession">
+              <p class="boldFont">10:00</p>
+              <p>228 ₽</p>
+            </div>
+            <div class="cursor-pointer session">
+              <p class="boldFont">10:00</p>
+              <p>228 ₽</p>
+            </div>
+            <div class="cursor-pointer session">
+              <p class="boldFont">10:00</p>
+              <p>228 ₽</p>
+            </div>
+            <div class="cursor-pointer session">
+              <p class="boldFont">10:00</p>
+              <p>228 ₽</p>
+            </div>
+            <div class="cursor-pointer session">
+              <p class="boldFont">10:00</p>
+              <p>228 ₽</p>
+            </div>
+            <div class="cursor-pointer session">
+              <p class="boldFont">10:00</p>
+              <p>228 ₽</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
   </body>
 </html>
