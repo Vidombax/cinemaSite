@@ -4,8 +4,12 @@ setTimeout(
       let session = e.target;
       let hallDiv = document.getElementById("hallDiv");
 
+      let mainDiv = document.getElementsByClassName("mainDiv");
+
       session.classList.add("selectSession");
       document.getElementById("blackout").style.opacity = "1";
+      document.getElementById("blackout").style.height =
+        mainDiv[0].offsetHeight + "px";
       hallDiv.style.opacity = "1";
       hallDiv.style.pointerEvents = "auto";
     }

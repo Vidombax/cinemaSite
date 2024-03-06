@@ -12,10 +12,19 @@
     <link rel="stylesheet" href="../assets/css/footer.css">
     <link rel="stylesheet" href="../assets/css/listOfMovies.css">
     <link rel="shortcut icon" href="../public/favicon.png" type="image/png">
+    <?php
+        require_once('../db/connection.php');
+    ?>
 </head>
 <body>
 <header>
   <div class="flex justify-center items-center gap-60 relative mb-16">
+    <?php
+        $sql_film = "SELECT * FROM `films` WHERE films.idFilm = ?";
+        $Data_film = $pdo -> prepare($sql_film);
+        $Data_film->execute(array($_GET['id']));
+        $Line_film = $Data_film -> fetch();
+    ?>
     <a href="../../">
       <img src="../public/logo.png" class="w-32 h-30" alt="Logo" />
     </a>
@@ -28,15 +37,15 @@
     <main>
         <div>
             <div class="flex justify-center items-center mb-16 relative">
-                <img src="../public/testPoster.jpg" alt="Poster" class="posterImg">
+                <img src="../<?=$Line_film['posterFilm']?>" alt="Poster" class="posterImg">
                 <div class="ml-16">
                     <div class="flex items-center gap-14 mb-4 text-xl">
-                        <p>Франция</p>
-                        <p>Комедия</p>
-                        <p>1 час 30 минут</p>
+                        <p><?=$Line_film['countryFilm']?></p>
+                        <p><?=$Line_film['genreFilm']?></p>
+                        <p><?=$Line_film['durationFilm']?></p>
                     </div>
-                    <p class="boldFont text-5xl mb-6" id="nameSelectedFilm">Такси</p>
-                    <p class="textAboutFilm text-xl">Таксист Никита помешан на быстрой езде. Как ураган проносится он по извилистым улицам Нижнего Тагила на мощном ревущем «ВАЗ», пугая прохожих и приводя в ужас пассажиров. Начинающий следователь Макар вынуждает его помогать в поимке банды грабителей люков, каждый раз ускользающих от полиции на неуловимых «Тойотах».</p>
+                    <p class="boldFont text-5xl mb-6" id="nameSelectedFilm"><?=$Line_film['nameFilm']?></p>
+                    <p class="textAboutFilm text-xl"><?=$Line_film['descriptionFilm']?></p>
                     <div class="mb-16">
                         <p class="mb-6 boldFont text-2xl">Сеансы на:
                         <select class="selectDay">
@@ -70,7 +79,13 @@
                         </div>
                     </div>
                     <div class="trailerDiv flex items-center justify-center">
-                        <video src="../public/trailer-videos/test.mp4" type="video/mp4" controls="controls" width="700" height="700"></video>
+                        <?php
+                            if ($Line_film['trailerFilm'] == '../public/trailer-videos/test.mp4') {?>
+                                <video src="<?=$Line_film['trailerFilm']?>" type="video/mp4" width="700" height="400" controls="controls"></video>  
+                            <?} else {?>
+                                <iframe width="700" height="400" src="<?=$Line_film['trailerFilm']?>"></iframe>
+                            <?}
+                        ?>                                              
                     </div>
                 </div>
             </div>

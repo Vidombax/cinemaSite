@@ -2,6 +2,9 @@
     <link rel="stylesheet" href="src/assets/css/posters.css" />
     <link rel="stylesheet" href="src/assets/css/sheduleSession.css" />
     <link rel="stylesheet" href="src/assets/css/listOfMovies.css" />
+    <?php
+      require_once('../db/connection.php');
+    ?>
   </head>
   <body class="shedulePage">
   <div class="slider flex justify-center gap-32 mb-16" id="slider">
@@ -71,50 +74,58 @@
         </div>
       </div>
     </div>
-    <div class="listOfMovies flex items-center justify-center" id="listOfMovies">
-      <div class="mb-12 movieSession">
-        <a href="./src/pages/selectedFilm.php">
-          <img src="./src/public/testPoster.jpg" alt="Poster" class="poster cursor-pointer"/>
-        </a>
-        <div class="grid">
-          <div class="flex gap-10">
-            <p class="text-2xl">Франция</p>
-            <p class="text-2xl">Комедия</p>
-            <p class="text-2xl">1 час 30 минут</p>
-          </div>
-          <p class="boldFont text-5xl cursor-pointer">
-            <a href="./src/pages/selectedFilm.php">Такси</a>
-          </p>
-          <div class="flex gap-20">
-            <div class="cursor-pointer session">
-              <p class="boldFont pointer-events-none">10:00</p>
-              <p class="pointer-events-none">228 ₽</p>
-            </div>
-            <div class="cursor-pointer session">
-              <p class="boldFont pointer-events-none">10:00</p>
-              <p class="pointer-events-none">228 ₽</p>
-            </div>
-            <div class="cursor-pointer session">
-              <p class="boldFont pointer-events-none">10:00</p>
-              <p class="pointer-events-none">228 ₽</p>
-            </div>
-            <div class="cursor-pointer session">
-              <p class="boldFont pointer-events-none">10:00</p>
-              <p class="pointer-events-none">228 ₽</p>
-            </div>
-            <div class="cursor-pointer session">
-              <p class="boldFont pointer-events-none">10:00</p>
-              <p class="pointer-events-none">228 ₽</p>
-            </div>
-            <div class="cursor-pointer session">
-              <p class="boldFont pointer-events-none">10:00</p>
-              <p class="pointer-events-none">228 ₽</p>
-            </div>
+    <div class="listOfMovies" id="listOfMovies">
+      <?php
+        $sql_films = "SELECT films.idFilm, `nameFilm`, `countryFilm`, `genreFilm`, `durationFilm`, `posterFilm` FROM `films` JOIN `rentals` ON films.idFilm = rentals.idFilm WHERE `statusRental` = 1";
+        $Data_films = $pdo -> query($sql_films);
+        $Line_films = $Data_films -> fetchAll();
+
+        foreach ($Line_films as $mas) {?>
+          <div class="mb-12 movieSession">
+            <a href="./src/pages/selectedFilm.php?id=<?=$mas['idFilm']?>">
+              <img src="./src/<?=$mas['posterFilm']?>" alt="Poster" class="poster cursor-pointer"/>
+            </a>
+            <div class="grid">
+              <div class="flex gap-10">
+                <p class="text-2xl"><?=$mas['countryFilm']?></p>
+                <p class="text-2xl"><?=$mas['genreFilm']?></p>
+                <p class="text-2xl"><?=$mas['durationFilm']?></p>
+              </div>
+              <p class="boldFont text-5xl cursor-pointer">
+                <a href="./src/pages/selectedFilm.php?id=<?=$mas['idFilm']?>"><?=$mas['nameFilm']?></a>
+              </p>
+              <div class="flex gap-20">
+                <div class="cursor-pointer session">
+                  <p class="boldFont pointer-events-none">10:00</p>
+                  <p class="pointer-events-none">228 ₽</p>
+                </div>
+                <div class="cursor-pointer session">
+                  <p class="boldFont pointer-events-none">10:00</p>
+                  <p class="pointer-events-none">228 ₽</p>
+                </div>
+                  <div class="cursor-pointer session">
+                    <p class="boldFont pointer-events-none">10:00</p>
+                    <p class="pointer-events-none">228 ₽</p>
+                </div>
+                <div class="cursor-pointer session">
+                  <p class="boldFont pointer-events-none">10:00</p>
+                  <p class="pointer-events-none">228 ₽</p>
+                </div>
+                <div class="cursor-pointer session">
+                  <p class="boldFont pointer-events-none">10:00</p>
+                  <p class="pointer-events-none">228 ₽</p>
+                </div>
+                <div class="cursor-pointer session">
+                  <p class="boldFont pointer-events-none">10:00</p>
+                  <p class="pointer-events-none">228 ₽</p>
+                </div>
             </div>
           </div>
         </div>
-      </div>
       
+        <?}
+      ?>
+      </div>
     </div>
   </body>
   <script>

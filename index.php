@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./src/assets/js/jquery-3.7.1.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     
 
     <link rel="stylesheet" href="./src/assets/css/main.css" />
@@ -20,7 +20,7 @@
     <div class="blackout" id="blackout">
       
     </div>
-    <div>
+    <div class="mainDiv">
       <?php
         require_once('./src/modules/Header.html');
       ?>

@@ -25,15 +25,19 @@
 
 .movieSession {
   display: grid;
-  grid-template-columns: 30% 1fr;
+  grid-template-columns: 20% 1fr;
+  margin-left: 24rem;
 }
 
 .poster {
-  width: 280px;
+  width: 250px;
   height: 380px;
   border-radius: 12px;
 }
 
 .listOfMovies {
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-content: center;
 }

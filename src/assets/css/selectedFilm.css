@@ -23,3 +23,7 @@
 .trailerDiv video {
   border-radius: 12px;
 }
+
+.trailerDiv iframe {
+  border-radius: 12px;
+}
