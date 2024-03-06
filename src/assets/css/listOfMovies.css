@@ -31,4 +31,9 @@
 .poster {
   width: 280px;
   height: 380px;
+  border-radius: 12px;
+}
+
+.listOfMovies {
+  flex-direction: column;
 }

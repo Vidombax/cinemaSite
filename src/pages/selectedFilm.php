@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HugeVision | Название фильма</title>
+    <title>HugeVision | </title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../assets/css/main.css">
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
     <link rel="stylesheet" href="../assets/css/listOfMovies.css">
-    <link rel="shortcut icon" href="src/public/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="../public/favicon.png" type="image/png">
 </head>
 <body>
 <header>
@@ -31,9 +31,9 @@
                 <img src="../public/testPoster.jpg" alt="Poster" class="posterImg">
                 <div class="ml-16">
                     <div class="flex items-center gap-14 mb-4 text-xl">
-                        <p>Страна</p>
-                        <p>Жанр</p>
-                        <p>Продолжительность</p>
+                        <p>Франция</p>
+                        <p>Комедия</p>
+                        <p>1 час 30 минут</p>
                     </div>
                     <p class="boldFont text-5xl mb-6" id="nameSelectedFilm">Такси</p>
                     <p class="textAboutFilm text-xl">Таксист Никита помешан на быстрой езде. Как ураган проносится он по извилистым улицам Нижнего Тагила на мощном ревущем «ВАЗ», пугая прохожих и приводя в ужас пассажиров. Начинающий следователь Макар вынуждает его помогать в поимке банды грабителей люков, каждый раз ускользающих от полиции на неуловимых «Тойотах».</p>
@@ -86,5 +86,6 @@
         /></a>
 </footer>
 </body>
+<script src="../assets/js/jquery-3.7.1.min.js"></script>
 <script src="../assets/js/main.js"></script>
 </html>

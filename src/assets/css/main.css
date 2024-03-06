@@ -16,6 +16,7 @@ body {
   background-color: #90d2a9;
   color: #05386b;
   font-family: "Object Sans Regular";
+  overflow-x: hidden;
 }
 
 button {
@@ -44,7 +45,7 @@ button {
 .hallDiv {
   background-color: #90d2a9;
   position: absolute;
-  top: 25rem;
+  top: 26rem;
   left: 33rem;
   width: auto;
   z-index: 60;
@@ -71,6 +72,7 @@ button {
   margin: 1rem;
   font-size: larger;
   cursor: pointer;
+  transition: 0.3s linear;
 }
 
 .hallSeats {
@@ -90,19 +92,21 @@ button {
 
 .buyInfo {
   display: grid;
-  grid-template-columns: repeat(2, 9rem);
+  grid-template-columns: repeat(2, 9.5rem);
   align-items: center;
 }
 
 .selectedSessionInHall {
   text-align: center;
   width: 80px;
+  padding: 4px;
 }
 
 .aboutHall {
   display: grid;
   grid-template-columns: 8.5rem 42rem 2rem;
   text-align: center;
+  align-items: center;
 }
 
 .promocodeInfo {
@@ -145,4 +149,98 @@ button {
   width: 32px;
   height: 32px;
   cursor: pointer;
+}
+
+.hallBlackout {
+  transition: 0.3s ease;
+  pointer-events: none;
+  opacity: 0;
+  height: 66vh;
+  width: 100%;
+  z-index: 10;
+  border-radius: 12px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.orderTickets {
+  z-index: 60;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #5cdb95;
+  height: 66vh;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.backDiv {
+  display: grid;
+  grid-template-columns: 50px 200px;
+}
+
+.backDiv img {
+  cursor: pointer;
+}
+
+.inputsOrders {
+  display: grid;
+  gap: 42px;
+}
+
+.inputAndTextOrder {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputAndTextOrder input {
+  width: 24.5rem;
+  border-radius: 6px;
+  padding: 6px;
+  background-color: #05386b;
+  color: #edf5e1;
+  font-size: larger;
+}
+
+.buyDiv {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.buyDiv button {
+  background-color: #05386b;
+  color: #edf5e1;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.textAboutData {
+  width: 400px;
+}
+
+.arrowSlider {
+  display: flex;
+  position: absolute;
+  background-color: #edf5e1;
+  border-radius: 12px;
+  padding: 6px;
+  text-align: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.arrowSlider:first-child {
+  top: 8rem;
+  left: 2rem;
+}
+
+.arrowSlider:last-child {
+  top: 8rem;
+  left: 108.5rem;
 }
