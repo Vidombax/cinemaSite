@@ -35,7 +35,7 @@ button {
   transition: 0.3s ease;
   pointer-events: none;
   opacity: 0;
-  height: 135vh;
+  height: 100vh;
   width: 100%;
   z-index: 10;
   position: absolute;
@@ -45,7 +45,7 @@ button {
 .hallDiv {
   background-color: #90d2a9;
   position: absolute;
-  top: 26rem;
+  top: 0;
   left: 33rem;
   width: auto;
   z-index: 60;
@@ -87,7 +87,7 @@ button {
 
 .infoCost {
   display: grid;
-  grid-template-columns: 530px 100px;
+  grid-template-columns: 670px 100px;
 }
 
 .buyInfo {
@@ -104,7 +104,7 @@ button {
 
 .aboutHall {
   display: grid;
-  grid-template-columns: 8.5rem 42rem 2rem;
+  grid-template-columns: 16.5rem 42rem 2rem;
   text-align: center;
   align-items: center;
 }
@@ -123,6 +123,7 @@ button {
   background-color: #05386b;
   color: #edf5e1;
   font-size: large;
+  text-align: center;
 }
 
 .buyTicketBtn {

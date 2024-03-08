@@ -1,9 +1,7 @@
 $(document).ready(function () {
   let sheduleHeaderBtn = document.getElementById("sheduleHeaderBtn"),
     filmsHeaderBtn = document.getElementById("filmsHeaderBtn"),
-    promocodeHeaderBtn = document.getElementById("promocodeHeaderBtn"),
-    crosBtn = document.getElementById("crosBtn"),
-    backBtnOrder = document.getElementById("backBtnOrder");
+    promocodeHeaderBtn = document.getElementById("promocodeHeaderBtn")
 
   let path = window.location.pathname;
   let page = path.split("/").pop();
@@ -16,30 +14,18 @@ $(document).ready(function () {
     $("#main").load("./src/pages/shedule.php", function () {
       $(this).animate({ opacity: 1 }, "slow");
     });
-    crosBtn.onclick = function () {
-      document.getElementById("hallDiv").style.pointerEvents = "none";
-      document.getElementById("hallDiv").style.opacity = "0";
-      document.getElementById("blackout").style.opacity = "0";
-
-      let session = document.getElementsByClassName("session");
-
-      for (let i = 0; i < session.length; i++) {
-        session[i].classList.remove("selectSession");
-      }
-    };
-
-    backBtnOrder.onclick = function () {
-      let orderDiv = document.getElementsByClassName("orderTickets");
-      let hallBlackout = document.getElementsByClassName("hallBlackout");
-
-      orderDiv[0].style.opacity = "0";
-      orderDiv[0].style.pointerEvents = "none";
-
-      hallBlackout[0].style.opacity = "0";
-    };
   } else {
-    document.title =
-      "HugeVision | " + document.getElementById("nameSelectedFilm").innerText;
+    document.title = "HugeVision | " + document.getElementById("nameSelectedFilm").innerText;
+    if (document.getElementById("statusFilm") == '0') {
+      let sessionsDiv = document.getElementById('sessionsDiv')
+      sessionsDiv.classList.add('boldFont')
+      sessionsDiv.classList.add('text-2xl')
+      sessionsDiv.style.textAlign = 'center'
+      sessionsDiv.innerText = 'Во всех кинотеатрах HugeVision с ' + document.getElementById('dayFilm').innerText
+    }
+    else {
+      
+    }
   }
 
   sheduleHeaderBtn.onclick = function () {
@@ -95,4 +81,19 @@ $(document).ready(function () {
 
     document.getElementById("blackout").style.height = "20vh";
   };
+
+  $(window).scroll(function(){
+    if (document.getElementById('hallDiv').style.opacity == '1') {
+      setTimeout(moveModal, 250)
+    }
+  });
 });
+
+function moveModal() {
+  let posTop = window.pageYOffset;
+
+  hallDiv.style.top = posTop + 150 + 'px';
+
+  hallDiv.style.opacity = "1";
+  hallDiv.style.pointerEvents = "auto";
+}

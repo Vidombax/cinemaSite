@@ -4,28 +4,21 @@
     <link rel="stylesheet" href="src/assets/css/listOfMovies.css" />
     <?php
       require_once('../db/connection.php');
+
+      $sql_afisha = "SELECT * FROM `afisha`";
+      $Data_afisha = $pdo -> query($sql_afisha);
+      $Line_afisha = $Data_afisha -> fetchAll();
     ?>
   </head>
   <body class="shedulePage">
   <div class="slider flex justify-center gap-32 mb-16" id="slider">
-        <div>
-          <img src="./src/public/silde-1.png" alt="Poster" class="posterImg" />
-        </div>
-        <div>
-          <img src="./src/public/silde-2.png" alt="Poster" class="posterImg" />
-        </div>
-        <div>
-          <img src="./src/public/silde-3.png" alt="Poster" class="posterImg" />
-        </div>
-        <div>
-          <img src="./src/public/silde-1.png" alt="Poster" class="posterImg" />
-        </div>
-        <div>
-          <img src="./src/public/silde-2.png" alt="Poster" class="posterImg" />
-        </div>
-        <div>
-          <img src="./src/public/silde-3.png" alt="Poster" class="posterImg" />
-        </div>
+    <?php
+      foreach ($Line_afisha as $mas) {?>
+          <div>
+            <img src="<?=$mas['photoAfisha']?>" alt="Poster" class="posterImg" />
+          </div>
+      <?}
+     ?>        
       </div>
     <div class="mb-16">
       <p class="boldFont mb-12 text-4xl ml-16 colorWhite">Расписание сеансов</p>
@@ -76,13 +69,13 @@
     </div>
     <div class="listOfMovies" id="listOfMovies">
       <?php
-        $sql_films = "SELECT films.idFilm, `nameFilm`, `countryFilm`, `genreFilm`, `durationFilm`, `posterFilm` FROM `films` JOIN `rentals` ON films.idFilm = rentals.idFilm WHERE `statusRental` = 1";
+        $sql_films = "SELECT films.idFilm, `nameFilm`, `countryFilm`, `genreFilm`, `durationFilm`, `posterFilm`, `priceTicket` FROM `films` JOIN `rentals` ON films.idFilm = rentals.idFilm WHERE `statusRental` = 1";
         $Data_films = $pdo -> query($sql_films);
         $Line_films = $Data_films -> fetchAll();
 
         foreach ($Line_films as $mas) {?>
           <div class="mb-12 movieSession">
-            <a href="./src/pages/selectedFilm.php?id=<?=$mas['idFilm']?>">
+            <a href="./src/pages/selectedFilm.php?id=<?=$mas['idFilm']?>&price=<?=$mas['priceTicket']?>">
               <img src="./src/<?=$mas['posterFilm']?>" alt="Poster" class="poster cursor-pointer"/>
             </a>
             <div class="grid">
@@ -91,33 +84,33 @@
                 <p class="text-2xl"><?=$mas['genreFilm']?></p>
                 <p class="text-2xl"><?=$mas['durationFilm']?></p>
               </div>
-              <p class="boldFont text-5xl cursor-pointer">
-                <a href="./src/pages/selectedFilm.php?id=<?=$mas['idFilm']?>"><?=$mas['nameFilm']?></a>
+              <p class="boldFont text-5xl cursor-pointer" id="nameSelectedFilm">
+                <a href="./src/pages/selectedFilm.php?id=<?=$mas['idFilm']?>&price=<?=$mas['priceTicket']?>"><?=$mas['nameFilm']?></a>
               </p>
               <div class="flex gap-20">
                 <div class="cursor-pointer session">
                   <p class="boldFont pointer-events-none">10:00</p>
-                  <p class="pointer-events-none">228 ₽</p>
+                  <p class="pointer-events-none"><?=$mas['priceTicket']?> ₽</p>
                 </div>
                 <div class="cursor-pointer session">
-                  <p class="boldFont pointer-events-none">10:00</p>
-                  <p class="pointer-events-none">228 ₽</p>
+                  <p class="boldFont pointer-events-none">12:30</p>
+                  <p class="pointer-events-none"><?=$mas['priceTicket']?> ₽</p>
                 </div>
                   <div class="cursor-pointer session">
-                    <p class="boldFont pointer-events-none">10:00</p>
-                    <p class="pointer-events-none">228 ₽</p>
+                    <p class="boldFont pointer-events-none">14:25</p>
+                    <p class="pointer-events-none"><?=$mas['priceTicket']?> ₽</p>
                 </div>
                 <div class="cursor-pointer session">
-                  <p class="boldFont pointer-events-none">10:00</p>
-                  <p class="pointer-events-none">228 ₽</p>
+                  <p class="boldFont pointer-events-none">17:45</p>
+                  <p class="pointer-events-none"><?=$mas['priceTicket']?> ₽</p>
                 </div>
                 <div class="cursor-pointer session">
-                  <p class="boldFont pointer-events-none">10:00</p>
-                  <p class="pointer-events-none">228 ₽</p>
+                  <p class="boldFont pointer-events-none">20:00</p>
+                  <p class="pointer-events-none"><?=$mas['priceTicket']?> ₽</p>
                 </div>
                 <div class="cursor-pointer session">
-                  <p class="boldFont pointer-events-none">10:00</p>
-                  <p class="pointer-events-none">228 ₽</p>
+                  <p class="boldFont pointer-events-none">22:15</p>
+                  <p class="pointer-events-none"><?=$mas['priceTicket']?> ₽</p>
                 </div>
             </div>
           </div>

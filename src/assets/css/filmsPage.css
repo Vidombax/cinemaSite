@@ -7,6 +7,7 @@
 .film-div {
   width: 200px;
   height: 200px;
+  position: relative;
   cursor: pointer;
 }
 
@@ -26,7 +27,7 @@
 .dataFilm {
   background-color: #05386b;
   padding: 6px;
-  width: 40%;
+  width: auto;
   border-radius: 6px;
   left: 3px;
   top: 3px;

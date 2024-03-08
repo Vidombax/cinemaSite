@@ -9,6 +9,7 @@
     <script src="./src/assets/js/jquery-3.7.1.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
 
     <link rel="stylesheet" href="./src/assets/css/main.css" />
@@ -20,7 +21,7 @@
     <div class="blackout" id="blackout">
       
     </div>
-    <div class="mainDiv">
+    <div class="mainDiv" id="mainDiv">
       <?php
         require_once('./src/modules/Header.html');
       ?>
@@ -30,9 +31,9 @@
       <div class="hallDiv" id="hallDiv">
         <div class="hallBlackout"></div>
         <div class="orderTickets">
-          <div class="backDiv mt-4 mb-4" id="backBtnOrder">
-            <img src="./src/public/arrow-left.png" alt="arrowLeft" width="32" height="32">
-            <p class="boldFont colorWhite text-2xl cursor-pointer">Назад</p>
+          <div class="backBtnOrder cursor-pointer backDiv mt-4 mb-4" id="backBtnOrder">
+            <img src="./src/public/arrow-left.png" class="pointer-events-none" alt="arrowLeft" width="32" height="32">
+            <p class="boldFont colorWhite text-2xl pointer-events-none">Назад</p>
           </div>
           <p class="boldFont colorWhite text-3xl mb-12 textAboutData">Данные для получения заказа</p>
           <div class="inputsOrders">
@@ -51,7 +52,7 @@
           </div>
         </div>
         <div class="aboutHall mb-6">
-          <span class="boldFont text-2xl">Такси</span>
+          <span class="boldFont text-2xl" id="nameFilmInOrder"></span>
           <div class="cursor-pointer selectedSessionInHall selectSession">
               <p class="boldFont pointer-events-none">10:00</p>
               <p class="pointer-events-none">228 ₽</p>
@@ -82,7 +83,7 @@
         <div class="infoCost">
           <div class="promocodeInfo">
             <p class="boldFont text-xl mb-2">Промокод:</p>
-            <input type="text" class="promocodeInput boldFont">
+            <input type="text" class="promocodeInput boldFont" maxlength="6">
           </div>
           <div class="buyInfo mt-8">
             <p class="boldFont" id="countSeats">Выберите место</p>
@@ -95,7 +96,6 @@
       ?>
     </div>
   </body>  
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="./src/assets/js/main.js"></script>
   <script src="./src/assets/js/shedule.js"></script>
 </html>
