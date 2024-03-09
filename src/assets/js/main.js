@@ -27,7 +27,7 @@ $(document).ready(function () {
       sessionsDiv.innerText = 'Во всех кинотеатрах HugeVision с ' + document.getElementById('dayFilm').innerText
     }
     else {
-      console.log('test')
+      console.log('something wrong i can feel that...')
     }
   }
 

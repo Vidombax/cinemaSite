@@ -87,12 +87,12 @@ button {
 
 .infoCost {
   display: grid;
-  grid-template-columns: 670px 100px;
+  grid-template-columns: 630px 100px;
 }
 
 .buyInfo {
   display: grid;
-  grid-template-columns: repeat(2, 9.5rem);
+  grid-template-columns: 11.5rem 8rem;
   align-items: center;
 }
 
@@ -244,4 +244,31 @@ button {
 .arrowSlider:last-child {
   top: 8rem;
   left: 108.5rem;
+}
+
+.calendar {
+  width: 90%;
+  margin: auto;
+}
+.calendar-item {
+  text-align: center;
+  padding: 20px;
+  margin: 29px;
+  background-color: transparent;
+  font-size: x-large;
+  font-family: "Object Sans Heavy";
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.arrowSliderShedule:first-child {
+  position: relative;
+  left: -2rem;
+  top: 5rem;
+}
+
+.arrowSliderShedule:last-child {
+  position: relative;
+  left: 108rem;
+  top: -5rem;
 }

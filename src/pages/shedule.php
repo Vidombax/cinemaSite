@@ -22,49 +22,8 @@
       </div>
     <div class="mb-16">
       <p class="boldFont mb-12 text-4xl ml-16 colorWhite">Расписание сеансов</p>
-      <div class="flex items-center justify-center gap-28">
-        <div>
-          <img
-            src="./src/public/arrow-left.png"
-            alt="ArrowLeft"
-            class="arrowShedule cursor-pointer"
-          />
-        </div>
-        <div class="cursor-pointer sheduleDay selectSheduleDay">
-          <p class="boldFont pointer-events-none">Сегодня</p>
-          <p class="pointer-events-none">1 марта</p>
-        </div>
-        <div class="cursor-pointer sheduleDay">
-          <p class="boldFont pointer-events-none">Завтра</p>
-          <p class="pointer-events-none">2 марта</p>
-        </div>
-        <div class="cursor-pointer sheduleDay">
-          <p class="boldFont">Среда</p>
-          <p>3 марта</p>
-        </div>
-        <div class="cursor-pointer sheduleDay">
-          <p class="boldFont">Четверг</p>
-          <p>4 марта</p>
-        </div>
-        <div class="cursor-pointer sheduleDay">
-          <p class="boldFont">Пятница</p>
-          <p>5 марта</p>
-        </div>
-        <div class="cursor-pointer sheduleDay">
-          <p class="boldFont">Суббота</p>
-          <p>6 марта</p>
-        </div>
-        <div class="cursor-pointer sheduleDay">
-          <p class="boldFont">Воскресенье</p>
-          <p>7 марта</p>
-        </div>
-        <div>
-          <img
-            src="./src/public/arrow-right.png"
-            alt="ArrowRight"
-            class="arrowShedule cursor-pointer"
-          />
-        </div>
+      <div class="calendar">
+
       </div>
     </div>
     <div class="listOfMovies" id="listOfMovies">
@@ -122,6 +81,7 @@
     </div>
   </body>
   <script>
+    $(document).ready(function() {
       $('.slider').slick({
         infinite: true,
         slidesToShow: 3,
@@ -133,5 +93,37 @@
         prevArrow:
           '<img src="./src/public/arrow-left.png" alt="arrowRight" class="cursor-pointer arrowSlider" width="32" height="32">',
       });    
+
+      $('.calendar').slick({
+        infinite: true,
+        slidesToShow: 7,
+        slidesToScroll: 3,
+        nextArrow:
+          '<img src="./src/public/arrow-right.png" alt="arrowLeft" class="cursor-pointer arrowSliderShedule" width="32" height="32">',
+        prevArrow:
+          '<img src="./src/public/arrow-left.png" alt="arrowRight" class="cursor-pointer arrowSliderShedule" width="32" height="32">',
+      });
+
+      function daysInMonth(month, year) {
+        return new Date(year, month, 0).getDate();
+      }
+
+    
+      let currentDate = new Date(),    
+      currentMonth = currentDate.getMonth() + 1,    
+      currentYear = currentDate.getFullYear(),    
+      daysInCurrentMonth = daysInMonth(currentMonth, currentYear)
+
+      let calendarItems = [];
+
+      for (let i = 0; i < daysInCurrentMonth; i++) {
+        calendarItems.push('2024-' + currentMonth + '-' + (i + 1))
+      }
+
+      calendarItems.forEach(function(date) {
+        let formattedDate = new Date(date).toLocaleDateString('ru-RU', { month: 'long', day: 'numeric' });
+        $('.calendar').slick('slickAdd', '<div class="calendar-item">' + formattedDate + '</div>');
+      });
+    });
   </script>
 </html>

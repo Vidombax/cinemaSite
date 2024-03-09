@@ -1,3 +1,5 @@
+let countTickets = 0,
+priceTicket = Number(document.getElementById('priceSelectedSession').innerText.split('₽')[0].trim())  
 setTimeout(
   document.addEventListener("click", function (e) {
     if (e.target.classList.contains("session")) {
@@ -66,12 +68,13 @@ setTimeout(
 
       moveModal()
     }
-
+  
   if (e.target.classList.contains("seatNumber")) {
       let seat = e.target;      
 
       if (seat.style.backgroundColor == 'rgb(25, 70, 61)') {
         seat.style.backgroundColor = '#5cdb95'
+        countTickets--
       }
       else if (seat.style.backgroundColor == 'rgb(239, 56, 56)') {
         const Toast = Swal.mixin({
@@ -88,8 +91,42 @@ setTimeout(
         });
       }  
       else {
-        seat.style.backgroundColor = '#19463d' 
+        countTickets++
+        seat.style.backgroundColor = '#19463d'      
       }      
+  }
+
+  if (e.target.classList.contains("seatNumber")) {
+    if (countTickets == 0) {
+      
+    }
+    else if (countTickets > 1) {
+      document.getElementById("countSeats").innerText = countTickets + " билета за " + (priceTicket * countTickets) + " ₽";      
+    }
+    else {
+      document.getElementById("countSeats").innerText = countTickets + " билет за " + (priceTicket * countTickets) + " ₽";      
+    }   
+    
+    switch (countTickets) {
+      case 0:
+        document.getElementById("countSeats").innerText = 'Выберите место'
+        break;
+      case 1:
+        document.getElementById("countSeats").innerText = countTickets + " билет за " + (priceTicket * countTickets) + " ₽"; 
+        break
+      case 2:
+        document.getElementById("countSeats").innerText = countTickets + " билета за " + (priceTicket * countTickets) + " ₽"; 
+        break
+      case 3:
+        document.getElementById("countSeats").innerText = countTickets + " билета за " + (priceTicket * countTickets) + " ₽"; 
+        break
+      case 4:
+        document.getElementById("countSeats").innerText = countTickets + " билета за " + (priceTicket * countTickets) + " ₽"; 
+        break
+      default:
+        document.getElementById("countSeats").innerText = countTickets + " билетов за " + (priceTicket * countTickets) + " ₽";    
+        break;
+    }
   }
 
     if (e.target.classList.contains("buyTicketBtn")) {
@@ -107,6 +144,8 @@ setTimeout(
           title: "Перед оформлением заказа, выберите место!",
         });
       } else {
+        document.getElementById('itogValue').innerText = document.getElementById('countSeats').innerText
+
         let orderDiv = document.getElementsByClassName("orderTickets");
         let hallBlackout = document.getElementsByClassName("hallBlackout");
 
@@ -117,19 +156,16 @@ setTimeout(
       }
     }
 
-    if (e.target.classList.contains("seatNumber")) {
-      document.getElementById("countSeats").innerText =
-        "1" + " билет за " + "228 ₽";
-    }
-
-    if (e.target.classList.contains("sheduleDay")) {
-      let days = document.getElementsByClassName("sheduleDay");
+    if (e.target.classList.contains("calendar-item")) {
+      let days = document.getElementsByClassName("calendar-item");
 
       for (let i = 0; i < days.length; i++) {
         days[i].classList.remove("selectSheduleDay");
+        days[i].classList.remove('colorWhite')
       }
 
       e.target.classList.add("selectSheduleDay");
+      e.target.classList.add('colorWhite')
     }
 
     if (e.target.classList.contains('crosBtn')) {
@@ -141,6 +177,8 @@ setTimeout(
 
       $('#telInput').val('')
       $('#mailInput').val('')
+
+      countTickets = 0
 
       document.getElementById('countSeats').innerText = 'Выберите место'
 
