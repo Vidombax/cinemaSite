@@ -85,9 +85,19 @@ $(document).ready(function () {
     document.getElementById("blackout").style.height = "20vh";
   };
 
+  let arrowUp = document.getElementById('arrowUp')
+
   $(window).scroll(function(){
     if (document.getElementById('hallDiv').style.opacity == '1') {
       setTimeout(moveModal, 250)
+    }
+    
+    if (window.pageYOffset > 600) {
+      arrowUp.style.opacity = '1'
+      moveArrow()
+    }
+    else {
+      arrowUp.style.opacity = '0'
     }
   });
 });
@@ -99,4 +109,10 @@ function moveModal() {
 
   hallDiv.style.opacity = "1";
   hallDiv.style.pointerEvents = "auto";
+}
+
+function moveArrow() {
+  let postTop = window.pageYOffset
+
+  arrowUp.style.top = postTop + 25 + 'px'
 }

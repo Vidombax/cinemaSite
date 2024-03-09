@@ -19,6 +19,9 @@
     <link rel="shortcut icon" href="src/public/favicon.png" type="image/png">
   </head>
   <body>
+    <div class="arrowUp" id="arrowUp">
+      <a href="#mainDiv"><img src="./src/public/arrow-up.png" alt="arrow-up"></a>
+    </div>
     <div class="blackout" id="blackout">
       
     </div>
