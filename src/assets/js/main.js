@@ -6,6 +6,8 @@ $(document).ready(function () {
   let path = window.location.pathname;
   let page = path.split("/").pop();
 
+  $("#telInput").mask("+7 (999) 999-9999")
+
   if (page == "") {
     document.title += " | Расписание";
     sheduleHeaderBtn.classList.add("colorWhite");

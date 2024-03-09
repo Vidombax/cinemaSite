@@ -10,18 +10,76 @@ setTimeout(
       let mainDiv = document.getElementsByClassName("mainDiv");
       document.getElementById("blackout").style.height = mainDiv[0].offsetHeight + "px";
 
-      //TODO:Сделать нормальный вывод названия фильма в модалку
       let nameFilmInOrder = document.getElementById('nameFilmInOrder')
 
-      nameFilmInOrder.innerText = document.getElementById('nameSelectedFilm').innerText
+      let sessions = $(session).parent('.sessions')
+      let movie = $(sessions).parent('.grid')  
+
+      let path = window.location.pathname;
+      let page = path.split("/").pop();
+
+      if (page == '') {
+        nameFilmInOrder.innerText = movie[0].childNodes[3].innerText
+      }      
+      else {
+        nameFilmInOrder.innerText = document.getElementById('nameSelectedFilm').innerText
+      }
+
+      document.getElementById('timeSelectedSession').innerText = session.childNodes[1].innerText
+      document.getElementById('priceSelectedSession').innerText = session.childNodes[3].innerText
+
+      let idFilm = document.getElementById('idFilm'),
+      timeSession = document.getElementById('timeSelectedSession')
+
+      $.ajax({
+        type: "POST",
+        url: "src/db/getRentSeat.php", 
+        data: { id: idFilm.innerText, time: timeSession.innerText },
+        dataType: 'json',
+        success: function(response) {  
+          if (response.length > 0) {
+            for (let i = 0; i < response.length; i++) {
+              let rowSeat = response[i].rowSeat - 1
+              let seats = document.getElementsByClassName('seats')[rowSeat]
+              let rentSeat = seats.childNodes[response[i].seat + response[i].seat + 1] 
+
+              rentSeat.style.backgroundColor = '#EF3838'
+            }            
+          }
+          else {
+            console.log('У зала нет занятых мест')
+          }
+        }
+      })
 
       moveModal()
     }
 
-    if (e.target.classList.contains("seatNumber")) {
-      let seat = e.target;
-      seat.style.backgroundColor = "#19463D";
-    }
+  if (e.target.classList.contains("seatNumber")) {
+      let seat = e.target;      
+      console.log(seat.style.backgroundColor)
+      
+      if (seat.style.backgroundColor == 'rgb(25, 70, 61)') {
+        seat.style.backgroundColor = '#5cdb95'
+      }
+      else if (seat.style.backgroundColor == 'rgb(239, 56, 56)') {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+        });
+
+        Toast.fire({
+          icon: "warning",
+          title: "Это место уже занято!",
+        });
+      }  
+      else {
+        seat.style.backgroundColor = '#19463d' 
+      }      
+  }
 
     if (e.target.classList.contains("buyTicketBtn")) {
       if (document.getElementById("countSeats").innerText == "Выберите место") {
@@ -70,6 +128,9 @@ setTimeout(
         seats[i].style.backgroundColor = '#5cdb95'
       }
 
+      $('#telInput').val('')
+      $('#mailInput').val('')
+
       document.getElementById('countSeats').innerText = 'Выберите место'
 
       document.getElementById("hallDiv").style.pointerEvents = "none";
@@ -92,6 +153,5 @@ setTimeout(
     
       hallBlackout[0].style.opacity = "0";
     }
-  }),
-  50
+  })
 );

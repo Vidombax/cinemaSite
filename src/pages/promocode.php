@@ -12,8 +12,8 @@
     <div>
         <?php
             foreach ($line_promocodes as $mas) {?>
-                <div class="flex items-center justify-center relative">
-                    <div class="couponExplanation flex absolute items-center text-center" id="couponExplanation">
+                <div class="flex items-center justify-center relative divPromocode">
+                    <div class="couponExplanation flex absolute items-center text-center">
                         <p class="colorWhite"><?=$mas['explanation']?></p>
                     </div>
                     <div class="coupon items-center">

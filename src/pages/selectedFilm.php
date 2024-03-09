@@ -49,16 +49,16 @@
                     </div>
                     <p class="boldFont text-5xl mb-6" id="nameSelectedFilm"><?=$Line_film['nameFilm']?></p>
                     <p class="textAboutFilm text-xl"><?=$Line_film['descriptionFilm']?></p>
-                    <div class="mb-16" id="sessionsDiv">
+                    <div class="mb-16 grid" id="sessionsDiv">
                         <p class="mb-6 boldFont text-2xl">Сеансы на:
-                        <select class="selectDay">
+                          <select class="selectDay">
                             <option value="сегодня">сегодня</option>
                             <option value="завтра">завтра</option>
                             <option value="послезавтра">послезавтра</option>
                             <option value="4 марта">4 марта</option>
-                        </select>
-                    </p>
-                        <div class="flex gap-20 items-center justify-center">
+                          </select>
+                        </p>
+                        <div class="flex gap-20 items-center justify-center sessions">
                             <div class="cursor-pointer session">
                                 <p class="boldFont pointer-events-none">10:00</p>
                                 <p class="pointer-events-none"><?=$_GET['price']?> ₽</p>
@@ -104,11 +104,11 @@
           <div class="inputsOrders">
             <div class="inputAndTextOrder">
               <p class="boldFont colorWhite text-2xl mb-2">Номер телефона:</p>
-              <input type="mail" class="boldFont">
+              <input type="text" class="boldFont" id="telInput" name="telInput">
             </div>
             <div class="inputAndTextOrder mb-44">
               <p class="boldFont colorWhite text-2xl mb-2">E-MAIL:</p>
-              <input type="text" class="boldFont">
+              <input type="email" class="boldFont" id="mailInput" name="mailInput">
             </div>
           </div>
           <div class="buyDiv">
@@ -119,8 +119,8 @@
         <div class="aboutHall mb-6">
           <span class="boldFont text-2xl" id="nameFilmInOrder"></span>
           <div class="cursor-pointer selectedSessionInHall selectSession">
-              <p class="boldFont pointer-events-none">10:00</p>
-              <p class="pointer-events-none">228 ₽</p>
+              <p class="boldFont pointer-events-none" id="timeSelectedSession">10:00</p>
+              <p class="pointer-events-none" id="priceSelectedSession">228 ₽</p>
           </div>
           <img src="../public/cross.png" class="crosBtn" id="crosBtn" alt="closeImg">
         </div>
@@ -168,6 +168,7 @@
 </div>
 </body>
 <script src="../assets/js/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../assets/js/main.js"></script>
 <script src="../assets/js/shedule.js"></script>

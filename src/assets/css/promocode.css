@@ -25,13 +25,15 @@
 
 .couponExplanation {
   background-color: #379683;
-  padding: 6px;
+  padding: 13px;
   transition: 0.3s linear;
   border-radius: 12px;
-  width: 400px;
-  top: -2.5rem;
+  width: 300px;
+  top: 2.5rem;
   margin-left: 15rem;
   opacity: 0;
+  left: 42rem;
+  text-align: center;
 }
 
 .couponExplanation p {

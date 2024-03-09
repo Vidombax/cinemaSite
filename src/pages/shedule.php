@@ -11,7 +11,7 @@
     ?>
   </head>
   <body class="shedulePage">
-  <div class="slider flex justify-center gap-32 mb-16" id="slider">
+  <div class="slider mb-16" id="slider">
     <?php
       foreach ($Line_afisha as $mas) {?>
           <div>
@@ -75,6 +75,7 @@
 
         foreach ($Line_films as $mas) {?>
           <div class="mb-12 movieSession">
+            <p hidden id="idFilm"><?=$mas['idFilm']?></p>
             <a href="./src/pages/selectedFilm.php?id=<?=$mas['idFilm']?>&price=<?=$mas['priceTicket']?>">
               <img src="./src/<?=$mas['posterFilm']?>" alt="Poster" class="poster cursor-pointer"/>
             </a>
@@ -87,7 +88,7 @@
               <p class="boldFont text-5xl cursor-pointer" id="nameSelectedFilm">
                 <a href="./src/pages/selectedFilm.php?id=<?=$mas['idFilm']?>&price=<?=$mas['priceTicket']?>"><?=$mas['nameFilm']?></a>
               </p>
-              <div class="flex gap-20">
+              <div class="flex gap-20 sessions">
                 <div class="cursor-pointer session">
                   <p class="boldFont pointer-events-none">10:00</p>
                   <p class="pointer-events-none"><?=$mas['priceTicket']?> ₽</p>
@@ -114,8 +115,7 @@
                 </div>
             </div>
           </div>
-        </div>
-      
+        </div>      
         <?}
       ?>
       </div>
@@ -125,7 +125,6 @@
       $('.slider').slick({
         infinite: true,
         slidesToShow: 3,
-        slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
         centerMode: true,

@@ -7,6 +7,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./src/assets/js/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -39,11 +40,11 @@
           <div class="inputsOrders">
             <div class="inputAndTextOrder">
               <p class="boldFont colorWhite text-2xl mb-2">Номер телефона:</p>
-              <input type="mail" class="boldFont">
+              <input type="text" class="boldFont" id="telInput" name="telInput">
             </div>
             <div class="inputAndTextOrder mb-44">
               <p class="boldFont colorWhite text-2xl mb-2">E-MAIL:</p>
-              <input type="text" class="boldFont">
+              <input type="email" class="boldFont" id="mailInput" name="mailInput">
             </div>
           </div>
           <div class="buyDiv">
@@ -54,8 +55,8 @@
         <div class="aboutHall mb-6">
           <span class="boldFont text-2xl" id="nameFilmInOrder"></span>
           <div class="cursor-pointer selectedSessionInHall selectSession">
-              <p class="boldFont pointer-events-none">10:00</p>
-              <p class="pointer-events-none">228 ₽</p>
+              <p class="boldFont pointer-events-none" id="timeSelectedSession">10:00</p>
+              <p class="pointer-events-none" id="priceSelectedSession">228 ₽</p>
           </div>
           <img src="./src/public/cross.png" class="crosBtn" id="crosBtn" alt="closeImg">
         </div>

@@ -20,5 +20,25 @@ setTimeout(
                 title: "Ваш промокод: " + promocode.alt,
               });
         }
-    })    
+    }),  
+    document.addEventListener('mouseover', function(e) {
+        if (e.target.classList.contains('question')) {
+            let question = e.target,
+            coupon = $(question).parent('.coupon'),
+            promocode = $(coupon).parent('.divPromocode')
+            couponExplanation = promocode[0].childNodes[1]
+            
+            couponExplanation.style.opacity = 1
+        }
+    }),
+    document.addEventListener('mouseout', function(e) {
+        if (e.target.classList.contains('question')) {
+            let question = e.target,
+            coupon = $(question).parent('.coupon'),
+            promocode = $(coupon).parent('.divPromocode')
+            couponExplanation = promocode[0].childNodes[1]
+            
+            couponExplanation.style.opacity = 0
+        }
+    })
 , 100)

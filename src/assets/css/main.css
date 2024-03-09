@@ -104,7 +104,7 @@ button {
 
 .aboutHall {
   display: grid;
-  grid-template-columns: 16.5rem 42rem 2rem;
+  grid-template-columns: 16rem 42rem 2rem;
   text-align: center;
   align-items: center;
 }
