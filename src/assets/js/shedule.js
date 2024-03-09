@@ -13,7 +13,8 @@ setTimeout(
       let nameFilmInOrder = document.getElementById('nameFilmInOrder')
 
       let sessions = $(session).parent('.sessions')
-      let movie = $(sessions).parent('.grid')  
+      let movie = $(sessions).parent('.grid')
+      let movieSession = $(movie).parent('.movieSession')  
 
       let path = window.location.pathname;
       let page = path.split("/").pop();
@@ -28,13 +29,24 @@ setTimeout(
       document.getElementById('timeSelectedSession').innerText = session.childNodes[1].innerText
       document.getElementById('priceSelectedSession').innerText = session.childNodes[3].innerText
 
-      let idFilm = document.getElementById('idFilm'),
-      timeSession = document.getElementById('timeSelectedSession')
+
+      //TODO:На страницу фильма переделай условие            
+      let timeSession = document.getElementById('timeSelectedSession')
+      let idFilm,
+      url
+      if (page == '') {
+        url = 'src/db/getRentSeat.php'
+        idFilm = movieSession[0].childNodes[1].innerText
+      }
+      else {
+        url = '../db/getRentSeat.php'
+        idFilm = document.getElementById('idFilm').innerText
+      }
 
       $.ajax({
         type: "POST",
-        url: "src/db/getRentSeat.php", 
-        data: { id: idFilm.innerText, time: timeSession.innerText },
+        url: url, 
+        data: { id: idFilm, time: timeSession.innerText },
         dataType: 'json',
         success: function(response) {  
           if (response.length > 0) {
@@ -57,8 +69,7 @@ setTimeout(
 
   if (e.target.classList.contains("seatNumber")) {
       let seat = e.target;      
-      console.log(seat.style.backgroundColor)
-      
+
       if (seat.style.backgroundColor == 'rgb(25, 70, 61)') {
         seat.style.backgroundColor = '#5cdb95'
       }

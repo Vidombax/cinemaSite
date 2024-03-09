@@ -22,7 +22,7 @@
 <div class="blackout" id="blackout"></div>
 <div class="mainDiv">
 <header>
-  <div class="flex justify-center items-center gap-60 relative mb-16">
+  <div class="flex justify-center items-center gap-60 relative mb-36">
     <?php
         $sql_film = "SELECT * FROM `films` WHERE films.idFilm = ?";
         $Data_film = $pdo -> prepare($sql_film);
@@ -40,6 +40,7 @@
 
     <main>
             <div class="flex justify-center items-center mb-16 relative">
+                <p hidden id="idFilm"><?=$_GET['id']?></p>
                 <img src="../<?=$Line_film['posterFilm']?>" alt="Poster" class="posterImg">
                 <div class="ml-16">
                     <div class="flex items-center gap-14 mb-4 text-xl">
@@ -49,38 +50,48 @@
                     </div>
                     <p class="boldFont text-5xl mb-6" id="nameSelectedFilm"><?=$Line_film['nameFilm']?></p>
                     <p class="textAboutFilm text-xl"><?=$Line_film['descriptionFilm']?></p>
-                    <div class="mb-16 grid" id="sessionsDiv">
-                        <p class="mb-6 boldFont text-2xl">Сеансы на:
-                          <select class="selectDay">
-                            <option value="сегодня">сегодня</option>
-                            <option value="завтра">завтра</option>
-                            <option value="послезавтра">послезавтра</option>
-                            <option value="4 марта">4 марта</option>
-                          </select>
-                        </p>
-                        <div class="flex gap-20 items-center justify-center sessions">
-                            <div class="cursor-pointer session">
-                                <p class="boldFont pointer-events-none">10:00</p>
-                                <p class="pointer-events-none"><?=$_GET['price']?> ₽</p>
+                    <?php
+                          if ($_GET['status'] == 0) {?>
+                              <div class="mb-16 grid" id="sessionsDiv">
+
+                              </div>
+                          <?}
+                          else {?>
+                            <div class="mb-16 grid" id="sessionsDiv">
+                              <p class="mb-6 boldFont text-2xl">Сеансы на:
+                                <select class="selectDay">
+                                  <option value="сегодня">сегодня</option>
+                                  <option value="завтра">завтра</option>
+                                  <option value="послезавтра">послезавтра</option>
+                                  <option value="4 марта">4 марта</option>
+                                </select>
+                              </p>
+                              <div class="flex gap-20 items-center justify-center sessions">
+                                <div class="cursor-pointer session">
+                                  <p class="boldFont pointer-events-none">10:00</p>
+                                  <p class="pointer-events-none"><?=$_GET['price']?> ₽</p>
+                                </div>
+                                <div class="cursor-pointer session">
+                                  <p class="boldFont pointer-events-none">12:30</p>
+                                  <p class="pointer-events-none"><?=$_GET['price']?> ₽</p>
+                                </div>
+                                <div class="cursor-pointer session">
+                                  <p class="boldFont pointer-events-none">14:25</p>
+                                  <p class="pointer-events-none"><?=$_GET['price']?> ₽</p>
+                                </div>
+                                <div class="cursor-pointer session">
+                                  <p class="boldFont pointer-events-none">17:45</p>
+                                  <p class="pointer-events-none"><?=$_GET['price']?> ₽</p>
+                                </div>
+                                <div class="cursor-pointer session">
+                                  <p class="boldFont pointer-events-none">20:00</p>
+                                  <p class="pointer-events-none"><?=$_GET['price']?> ₽</p>
+                                </div>
+                              </div>
                             </div>
-                            <div class="cursor-pointer session">
-                                <p class="boldFont pointer-events-none">12:30</p>
-                                <p class="pointer-events-none"><?=$_GET['price']?> ₽</p>
-                            </div>
-                            <div class="cursor-pointer session">
-                                <p class="boldFont pointer-events-none">14:25</p>
-                                <p class="pointer-events-none"><?=$_GET['price']?> ₽</p>
-                            </div>
-                            <div class="cursor-pointer session">
-                                <p class="boldFont pointer-events-none">17:45</p>
-                                <p class="pointer-events-none"><?=$_GET['price']?> ₽</p>
-                            </div>
-                            <div class="cursor-pointer session">
-                                <p class="boldFont pointer-events-none">20:00</p>
-                                <p class="pointer-events-none"><?=$_GET['price']?> ₽</p>
-                            </div>
-                        </div>
-                    </div>
+                          <?}
+                        ?>
+
                     <div class="trailerDiv flex items-center justify-center">
                         <?php
                             if ($Line_film['trailerFilm'] == '../public/trailer-videos/test.mp4') {?>

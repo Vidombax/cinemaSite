@@ -18,15 +18,16 @@ $(document).ready(function () {
     });
   } else {
     document.title = "HugeVision | " + document.getElementById("nameSelectedFilm").innerText;
-    if (document.getElementById("statusFilm") == '0') {
+    if (document.getElementById("statusFilm").innerText == '0') {
       let sessionsDiv = document.getElementById('sessionsDiv')
+
       sessionsDiv.classList.add('boldFont')
       sessionsDiv.classList.add('text-2xl')
       sessionsDiv.style.textAlign = 'center'
       sessionsDiv.innerText = 'Во всех кинотеатрах HugeVision с ' + document.getElementById('dayFilm').innerText
     }
     else {
-      
+      console.log('test')
     }
   }
 

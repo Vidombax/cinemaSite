@@ -69,14 +69,14 @@
     </div>
     <div class="listOfMovies" id="listOfMovies">
       <?php
-        $sql_films = "SELECT films.idFilm, `nameFilm`, `countryFilm`, `genreFilm`, `durationFilm`, `posterFilm`, `priceTicket` FROM `films` JOIN `rentals` ON films.idFilm = rentals.idFilm WHERE `statusRental` = 1";
+        $sql_films = "SELECT films.idFilm, `nameFilm`, `countryFilm`, `genreFilm`, `durationFilm`, `posterFilm`, `priceTicket`, `statusRental` FROM `films` JOIN `rentals` ON films.idFilm = rentals.idFilm WHERE `statusRental` = 1";
         $Data_films = $pdo -> query($sql_films);
         $Line_films = $Data_films -> fetchAll();
 
         foreach ($Line_films as $mas) {?>
           <div class="mb-12 movieSession">
             <p hidden id="idFilm"><?=$mas['idFilm']?></p>
-            <a href="./src/pages/selectedFilm.php?id=<?=$mas['idFilm']?>&price=<?=$mas['priceTicket']?>">
+            <a href="./src/pages/selectedFilm.php?id=<?=$mas['idFilm']?>&price=<?=$mas['priceTicket']?>&status=<?=$mas['statusRental']?>">
               <img src="./src/<?=$mas['posterFilm']?>" alt="Poster" class="poster cursor-pointer"/>
             </a>
             <div class="grid">
@@ -86,7 +86,7 @@
                 <p class="text-2xl"><?=$mas['durationFilm']?></p>
               </div>
               <p class="boldFont text-5xl cursor-pointer" id="nameSelectedFilm">
-                <a href="./src/pages/selectedFilm.php?id=<?=$mas['idFilm']?>&price=<?=$mas['priceTicket']?>"><?=$mas['nameFilm']?></a>
+                <a href="./src/pages/selectedFilm.php?id=<?=$mas['idFilm']?>&price=<?=$mas['priceTicket']?>&status=<?=$mas['statusRental']?>"><?=$mas['nameFilm']?></a>
               </p>
               <div class="flex gap-20 sessions">
                 <div class="cursor-pointer session">
