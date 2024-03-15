@@ -33,8 +33,9 @@
         <img src="./src/public/loading.gif" alt="Loading" width="64" height="64" class="flex justify-center items-center">
       </main>
       <div class="hallDiv" id="hallDiv">
+        <p id="iddd" hidden></p>
         <div class="hallBlackout"></div>
-        <div class="orderTickets">
+        <div class="orderTickets" id="orderTickets">
           <div class="backBtnOrder cursor-pointer backDiv mt-4 mb-4" id="backBtnOrder">
             <img src="./src/public/arrow-left.png" class="pointer-events-none" alt="arrowLeft" width="32" height="32">
             <p class="boldFont colorWhite text-2xl pointer-events-none">Назад</p>
@@ -52,7 +53,7 @@
           </div>
           <div class="buyDiv">
             <p class="boldFont text-2xl" id="itogValue"></p>
-            <button class="boldFont text-2xl">Купить билет</button>
+            <button class="boldFont text-2xl orderBtnInInfoDiv">Купить билет</button>
           </div>
         </div>
         <div class="aboutHall mb-6">

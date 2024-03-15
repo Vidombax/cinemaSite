@@ -31,18 +31,19 @@ setTimeout(
       document.getElementById('timeSelectedSession').innerText = session.childNodes[1].innerText
       document.getElementById('priceSelectedSession').innerText = session.childNodes[3].innerText
 
-
-      //TODO:На страницу фильма переделай условие            
+          
       let timeSession = document.getElementById('timeSelectedSession')
       let idFilm,
       url
       if (page == '') {
         url = 'src/db/getRentSeat.php'
-        idFilm = movieSession[0].childNodes[1].innerText
+        idFilm = movieSession[0].childNodes[1].innerText        
+        document.getElementById('iddd').innerText = idFilm        
       }
       else {
         url = '../db/getRentSeat.php'
         idFilm = document.getElementById('idFilm').innerText
+        document.getElementById('iddd').innerText = idFilm
       }
 
       $.ajax({
@@ -202,5 +203,59 @@ setTimeout(
     
       hallBlackout[0].style.opacity = "0";
     }
+
+     if (e.target.classList.contains('orderBtnInInfoDiv')) {
+      if (document.getElementById('telInput').value != '' && document.getElementById('mailInput').value != '') {
+        let inputDiv = document.getElementById('orderTickets')
+        let seats = document.getElementsByClassName('seatNumber')
+        let id = document.getElementById('iddd').innerText
+        let time = document.getElementById('timeSelectedSession').innerText
+  
+        for (let i = 0; i < seats.length; i++) {
+          if (seats[i].style.backgroundColor == 'rgb(25, 70, 61)') {
+            let row = seats[i].parentElement.childNodes[1].innerText
+            seats[i].style.backgroundColor = '#EF3838'
+            $.ajax({
+              type: "POST",
+              url: '../src/db/orderSeat.php', 
+              data: {seat: seats[i].innerText, row: row, id: id, time: time},
+              success: function(response) {  
+                console.log(response)
+              }
+            })
+  
+            const Toast = Swal.mixin({
+              toast: true,
+              position: "top-end",
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+            });
+  
+            Toast.fire({
+              icon: "success",
+              title: "Место забронировано!",
+            });
+          }        
+        }
+  
+        inputDiv.style.opacity = '0'
+        document.getElementsByClassName('hallBlackout')[0].style.opacity = '0' 
+      }
+      else {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+        });
+
+        Toast.fire({
+          icon: "error",
+          title: "Напишите свои данные, чтобы забронировать билет",
+        });
+      }
+     }
   })
 );

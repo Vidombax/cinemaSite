@@ -105,6 +105,7 @@
             </div>
     </main>
     <div class="hallDiv" id="hallDiv">
+        <p id="iddd" hidden></p>
         <div class="hallBlackout"></div>
         <div class="orderTickets">
         <div class="backBtnOrder cursor-pointer backDiv mt-4 mb-4" id="backBtnOrder">
