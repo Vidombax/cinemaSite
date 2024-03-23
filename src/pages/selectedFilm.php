@@ -125,7 +125,7 @@
           </div>
           <div class="buyDiv">
             <p class="boldFont text-2xl" id="itogValue">1 билет за 228 ₽</p>
-            <button class="boldFont text-2xl">Купить билет</button>
+            <button class="orderBtnInInfoDiv boldFont text-2xl">Купить билет</button>
           </div>
         </div>
         <div class="aboutHall mb-6">

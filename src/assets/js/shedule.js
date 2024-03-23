@@ -38,7 +38,7 @@ setTimeout(
       if (page == '') {
         url = 'src/db/getRentSeat.php'
         idFilm = movieSession[0].childNodes[1].innerText        
-        document.getElementById('iddd').innerText = idFilm        
+        document.getElementById('iddd').innerText = idFilm       
       }
       else {
         url = '../db/getRentSeat.php'
@@ -210,15 +210,18 @@ setTimeout(
         let seats = document.getElementsByClassName('seatNumber')
         let id = document.getElementById('iddd').innerText
         let time = document.getElementById('timeSelectedSession').innerText
+        let nameFilm = document.getElementById('nameFilmInOrder').innerText        
+
+        let mail = document.getElementById('mailInput').value
   
         for (let i = 0; i < seats.length; i++) {
           if (seats[i].style.backgroundColor == 'rgb(25, 70, 61)') {
             let row = seats[i].parentElement.childNodes[1].innerText
-            seats[i].style.backgroundColor = '#EF3838'
+            seats[i].style.backgroundColor = '#EF3838'            
             $.ajax({
               type: "POST",
               url: '../src/db/orderSeat.php', 
-              data: {seat: seats[i].innerText, row: row, id: id, time: time},
+              data: {seat: seats[i].innerText, row: row, id: id, time: time, nameFilm: nameFilm, price: priceTicket, mail: mail},
               success: function(response) {  
                 console.log(response)
               }

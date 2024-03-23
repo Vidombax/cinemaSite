@@ -48,7 +48,7 @@
             </div>
             <div class="inputAndTextOrder mb-44">
               <p class="boldFont colorWhite text-2xl mb-2">E-MAIL:</p>
-              <input type="email" class="boldFont" id="mailInput" name="mailInput">
+              <input type="text" class="boldFont" id="mailInput" name="mailInput">
             </div>
           </div>
           <div class="buyDiv">

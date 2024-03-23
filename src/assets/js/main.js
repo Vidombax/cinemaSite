@@ -16,6 +16,22 @@ $(document).ready(function () {
     $("#main").load("./src/pages/shedule.php", function () {
       $(this).animate({ opacity: 1 }, "slow");
     });
+
+    let arrowUp = document.getElementById('arrowUp')
+
+    $(window).scroll(function(){
+      if (document.getElementById('hallDiv').style.opacity == '1') {
+        setTimeout(moveModal, 250)
+      }
+      
+      if (window.pageYOffset > 600) {
+        arrowUp.style.opacity = '1'
+        moveArrow()
+      }
+      else {
+        arrowUp.style.opacity = '0'
+      }
+    });
   } else {
     document.title = "HugeVision | " + document.getElementById("nameSelectedFilm").innerText;
     if (document.getElementById("statusFilm").innerText == '0') {
@@ -84,22 +100,6 @@ $(document).ready(function () {
 
     document.getElementById("blackout").style.height = "20vh";
   };
-
-  let arrowUp = document.getElementById('arrowUp')
-
-  $(window).scroll(function(){
-    if (document.getElementById('hallDiv').style.opacity == '1') {
-      setTimeout(moveModal, 250)
-    }
-    
-    if (window.pageYOffset > 600) {
-      arrowUp.style.opacity = '1'
-      moveArrow()
-    }
-    else {
-      arrowUp.style.opacity = '0'
-    }
-  });
 });
 
 function moveModal() {
