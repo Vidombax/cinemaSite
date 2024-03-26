@@ -8,6 +8,7 @@
     $seat = $_POST['seat'];
     $id = $_POST['id'];
     $time = $_POST['time'];
+    $date = $_POST['date'];   
     $nameFilm = $_POST['nameFilm'];
     $price = $_POST['price'];
     $mail = $_POST['mail'];
@@ -40,7 +41,7 @@
                                                     Ряд: '.$row.'<br>
                                                     <br>Место: '.$seat.'<br>
                                                     <br>Время: '.$time.'<br>
-                                                    <br>Дата: TODO<br>
+                                                    <br>Дата: '.$date.'<br>
                                                     <br>Цена: '.$price.' ₽<br>
                                                 </div>
                                             </td>
@@ -50,14 +51,11 @@
                             </tr>
                         </table>
                     </td>
+                </table>
+            </td>
         </tr>
-    </table>
-</td>
-    </tr>
-</table>';
+    </table>';
 
 
-    var_dump(send_mail($settings['mail_settings_prod'], [$mail], 'Электронный билет', $body));
-
-    echo 'Место забронировано';
+    var_dump(send_mail($settings['mail_settings_prod'], [$mail], 'Электронный билет', $body));   
 ?>

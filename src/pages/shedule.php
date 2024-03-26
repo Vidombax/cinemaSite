@@ -97,7 +97,7 @@
       $('.calendar').slick({
         infinite: true,
         slidesToShow: 7,
-        slidesToScroll: 3,
+        slidesToScroll: 7,
         nextArrow:
           '<img src="./src/public/arrow-right.png" alt="arrowLeft" class="cursor-pointer arrowSliderShedule" width="32" height="32">',
         prevArrow:
@@ -109,21 +109,22 @@
       }
 
     
-      let currentDate = new Date(),    
-      currentMonth = currentDate.getMonth() + 1,    
-      currentYear = currentDate.getFullYear(),    
-      daysInCurrentMonth = daysInMonth(currentMonth, currentYear)
+      let currentDate = new Date(),
+      currentMonth = currentDate.getMonth() + 1,
+      currentYear = currentDate.getFullYear(),
+      currentDay = currentDate.getDate();
+      
 
-      let calendarItems = [];
-
-      for (let i = 0; i < daysInCurrentMonth; i++) {
-        calendarItems.push('2024-' + currentMonth + '-' + (i + 1))
+      for (let i = 0; i < 14; i++) {
+        let nextDate = new Date(currentYear, currentMonth - 1, currentDay + i);
+        let formattedDate = nextDate.toLocaleDateString('ru-RU', { month: 'long', day: 'numeric' });
+        if (i == 0) {
+          $('.calendar').slick('slickAdd', '<div class="colorWhite calendar-item selectSheduleDay">' + formattedDate + '</div>');
+        }
+        else {
+          $('.calendar').slick('slickAdd', '<div class="calendar-item">' + formattedDate + '</div>');
+        }        
       }
-
-      calendarItems.forEach(function(date) {
-        let formattedDate = new Date(date).toLocaleDateString('ru-RU', { month: 'long', day: 'numeric' });
-        $('.calendar').slick('slickAdd', '<div class="calendar-item">' + formattedDate + '</div>');
-      });
     });
   </script>
 </html>
